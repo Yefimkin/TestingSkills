@@ -18,9 +18,9 @@ h1 {
 
 #grid-container {
   display: grid;
-  grid-template-columns: repeat(10, 20px);
-  grid-template-rows: repeat(10, 20px);
-  gap: 2px;
+  grid-template-columns: repeat(auto-fill, 20px);
+  grid-template-rows: repeat(auto-fill, 20px);
+  gap: 0;
 }
 
 .grid-item {
@@ -28,4 +28,28 @@ h1 {
   height: 20px;
   background-color: white;
   border: 1px solid #ccc;
+}
+
+.grid-item:nth-child(10n + 1) {
+  border-left: 2px solid black; /* Толстый левый бордюр для каждого 10-го столбца */
+}
+
+.grid-item:nth-child(10n) {
+  border-right: 2px solid black; /* Толстый правый бордюр для каждого 10-го столбца */
+}
+
+.grid-item:nth-child(-n + 10) {
+  border-top: 2px solid black; /* Толстый верхний бордюр для первого ряда */
+}
+
+.grid-item:nth-child(n + 91) {
+  border-bottom: 2px solid black; /* Толстый нижний бордюр для последнего ряда */
+}
+
+.grid-item:nth-child(100n + 1) {
+  border-top: 2px solid black; /* Толстый верхний бордюр для каждого 10-го ряда */
+}
+
+.grid-item:nth-child(n + 91):nth-child(-n + 100) {
+  border-bottom: 2px solid black; /* Толстый нижний бордюр для каждого 10-го ряда */
 }
